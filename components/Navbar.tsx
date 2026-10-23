@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getCategories } from "@/lib/api";
-import CategoryLinks from "./CategoryLinks";
+
 
 export default async function Navbar() {
   const categories = await getCategories();
