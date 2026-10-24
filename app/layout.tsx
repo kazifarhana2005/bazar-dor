@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Hind_Siliguri } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import Ticker from "@/components/Ticker";
 import "./globals.css";
 
 const hind = Hind_Siliguri({
@@ -22,6 +23,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       >
         <Suspense fallback={<div className="h-24 bg-white" />}>
           <Navbar />
+        </Suspense>
+        <Suspense fallback={<div className="h-10 bg-white" />}>
+          <Ticker />
         </Suspense>
         {children}
       </body>

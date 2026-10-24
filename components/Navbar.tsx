@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getCategories } from "@/lib/api";
-
+import CategoryLinks from "./CategoryLinks";
 
 export default async function Navbar() {
   const categories = await getCategories();
@@ -26,6 +26,9 @@ export default async function Navbar() {
         </Link>
 
         <div className="flex items-center gap-2">
+          <Link href="/profile" className="btn btn-ghost btn-sm">
+            প্রোফাইল
+          </Link>
           <Link href="/signin" className="btn btn-ghost btn-sm">
             সাইন ইন
           </Link>
@@ -38,7 +41,7 @@ export default async function Navbar() {
         </div>
       </div>
 
-    
+      <CategoryLinks categories={categories} />
     </header>
   );
 }

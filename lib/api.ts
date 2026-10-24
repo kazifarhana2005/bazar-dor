@@ -23,3 +23,12 @@ export async function getCategories(): Promise<Category[]> {
   }
   return [...map.values()];
 }
+
+export async function getProductsByCategory(slug: string): Promise<Product[]> {
+  const res = await fetch(
+    `${BASE}/products?category=${encodeURIComponent(slug)}`
+  );
+  if (!res.ok) return [];
+  const data = await res.json();
+  return Array.isArray(data) ? data : [];
+}
