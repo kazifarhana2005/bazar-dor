@@ -1,16 +1,10 @@
 import Link from "next/link";
 import { getCategories } from "@/lib/api";
 import CategoryLinks from "./CategoryLinks";
+import TodayDate from "./TodayDate";
 
 export default async function Navbar() {
   const categories = await getCategories();
-  const today = new Date().toLocaleDateString("bn-BD", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "Asia/Dhaka",
-  });
 
   return (
     <header className="border-b border-base-300 bg-white">
@@ -21,7 +15,9 @@ export default async function Navbar() {
           </span>
           <div>
             <p className="font-bold leading-tight">বাজার দর</p>
-            <p className="text-xs text-gray-500">{today}</p>
+            <p className="text-xs text-gray-500">
+              <TodayDate />
+            </p>
           </div>
         </Link>
 

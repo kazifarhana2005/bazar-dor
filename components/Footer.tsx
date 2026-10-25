@@ -1,9 +1,11 @@
 export default function Footer() {
   return (
-    <footer className="mt-12 border-t border-base-300 bg-white">
-      <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-5 text-xs text-gray-600 md:flex-row md:items-center md:justify-between">
+    <footer className="mt-12 w-full border-t border-gray-200 bg-white">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-4 py-4 text-sm text-gray-700 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
         <p>বাজার দর — প্রয়োজনীয় পণ্যের দাম এক নজরে।</p>
-        <p>সকল দাম সম্ভাব্য; বাজার অবস্থার ওপর নির্ভর করে পরিবর্তিত হয়।</p>
+        <p className="sm:text-right">
+          সকল দাম সম্ভাব্য; বাজার অবস্থার ওপর নির্ভর করে পরিবর্তিত হয়।
+        </p>
       </div>
     </footer>
   );

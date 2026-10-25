@@ -3,6 +3,8 @@ import { Suspense } from "react";
 import { Hind_Siliguri } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Ticker from "@/components/Ticker";
+import Footer from "@/components/Footer";
+import ToasterProvider from "@/components/ToasterProvider";
 import "./globals.css";
 
 const hind = Hind_Siliguri({
@@ -21,13 +23,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body
         className={`${hind.className} min-h-full flex flex-col bg-[#f1f6f1] text-[#1a1a1a]`}
       >
+        <ToasterProvider />
         <Suspense fallback={<div className="h-24 bg-white" />}>
           <Navbar />
         </Suspense>
         <Suspense fallback={<div className="h-10 bg-white" />}>
           <Ticker />
         </Suspense>
-        {children}
+        <div className="flex-1">{children}</div>
+        <Footer />
       </body>
     </html>
   );
