@@ -32,3 +32,7 @@ export async function getProductsByCategory(slug: string): Promise<Product[]> {
   const data = await res.json();
   return Array.isArray(data) ? data : [];
 }
+export async function getProductBySlug(slug: string): Promise<Product | null> {
+  const products = await getProducts();
+  return products.find((p) => p.slug === slug) ?? null;
+}
